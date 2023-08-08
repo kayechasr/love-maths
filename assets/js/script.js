@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //using the key method allows to make your website keyboard controls. This one allows users to press enter to submit instead of clicking submit button
+  document.getElementById("answer-box").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      checkAnswer();
+    }
+  })
+
   runGame("addition");
 });
 
@@ -24,6 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
  * and after the users answer has been processed
  */
 function runGame(gameType) {
+
+  document.getElementById("answer-box").value = " ";
+  document.getElementById("answer-box").focus();
+
+
   //creates random number between 1 and 25
   let num1 = Math.floor(Math.random() * 25 + 1);
   let num2 = Math.floor(Math.random() * 25 + 1);
