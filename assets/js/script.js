@@ -17,7 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
   //using the key method allows to make your website keyboard controls. This one allows users to press enter to submit instead of clicking submit button
   document.getElementById("answer-box").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-      checkAnswer();
+      event.preventDefault();
+      if (document.getElementById("answer-box").value.length > 0) {
+        checkAnswer();
+      } else {
+        alert("Please enter an answer")
+      }
     }
   })
 
