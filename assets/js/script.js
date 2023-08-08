@@ -108,13 +108,13 @@ function displayAdditionQuestion(operand1, operand2) {
 }
 
 function displaySubtractQuestion(operand1, operand2) {
-    if (operand1 < operand2) {
-      let temp = operand1;
-      operand1 = operand2;
-      operand2 = temp;
-    }
-  document.getElementById("operand1").textContent = operand1;
-  document.getElementById("operand2").textContent = operand2;
+  // if (operand1 < operand2) {
+  //   let temp = operand1;
+  //   operand1 = operand2;
+  //   operand2 = temp;
+  // }
+  document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2; //Use ternary instead of if statement as above - more cleaner
+  document.getElementById("operand2").textContent = operand1 > operand2 ? operand2 : operand1;
   document.getElementById("operator").textContent = "-";
 }
 
@@ -125,19 +125,20 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-    if (operand1 < operand2) {
-      let temp = operand1;
-      operand1 = operand2;
-      operand2 = temp;
-    }
+    // if (operand1 < operand2) {
+    //   let temp = operand1;
+    //   operand1 = operand2;
+    //   operand2 = temp;
+    // }
 
+  //Using the below code & Math.ceil to check if the result is a decimal and the rounding it off to a whole number
   let result = operand1 / operand2;
 
   if (result % 1 != 0) {
     operand1 = operand2 * Math.ceil(result);
   }
 
-  document.getElementById("operand1").textContent = operand1;
-  document.getElementById("operand2").textContent = operand2;
+  document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2; //Use ternary instead of if statement as above - more cleaner
+  document.getElementById("operand2").textContent = operand1 > operand2 ? operand2 : operand1;
   document.getElementById("operator").textContent = "/";
 }
